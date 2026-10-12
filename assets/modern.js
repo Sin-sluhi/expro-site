@@ -112,7 +112,7 @@
   $$('.section__head').forEach(h => { const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { h.classList.add('mx-in'); o.disconnect(); } }); o.observe(h); });
 
   // светлые кнопки (белый фон) — текст фирменным цветом
-  $$('.button, a[class*="button"]').forEach(b => { const bg = getComputedStyle(b).backgroundColor; if (/255, 255, 255|rgba\(0, 0, 0, 0\)/.test(bg)) b.classList.add('mx-btn-light'); });
+  $$('.button, a[class*="button"]').forEach(b => { const cs = getComputedStyle(b); if (cs.backgroundImage !== 'none') return; if (/255, 255, 255|rgba\(0, 0, 0, 0\)/.test(cs.backgroundColor)) b.classList.add('mx-btn-light'); });
 
   /* ---------- картинки проявляются, когда загрузились ---------- */
   $$('main img').forEach(img => { if (!img.complete) { img.classList.add('mx-wait'); img.addEventListener('load', () => img.classList.remove('mx-wait'), { once: true }); img.addEventListener('error', () => img.classList.remove('mx-wait'), { once: true }); } });
