@@ -489,15 +489,59 @@ if (navEl) {
 }
 
 /* ---------- слайды в герое ---------- */
-const slides = $$('.slides .slide');
-if (slides.length > 1 && !RM) {
-  let si = 0;
-  setInterval(() => {
-    const cur = slides[si]; si = (si + 1) % slides.length; const nx = slides[si];
+const slides = $$('.slides .slide'), dots = $$('.dots button');
+if (slides.length > 1) {
+  let si = 0, timer = 0, paused = false;
+  const show = k => {
+    if (k === si) return;
+    const cur = slides[si]; si = (k + slides.length) % slides.length; const nx = slides[si];
     cur.classList.remove('on'); cur.classList.add('out');
     nx.classList.remove('out'); void nx.offsetWidth; nx.classList.add('on');
     setTimeout(() => cur.classList.remove('out'), 900);
-  }, 3800);
+    dots.forEach((d, i) => { d.classList.remove('on'); if (i === si) { void d.offsetWidth; d.classList.add('on'); } });
+  };
+  const run = () => { clearInterval(timer); if (!RM && !paused) timer = setInterval(() => show(si + 1), 5000); };
+  dots.forEach((d, i) => d.addEventListener('click', () => { show(i); run(); }));
+  const box = $('.slider');
+  box && box.addEventListener('pointerenter', () => { paused = true; clearInterval(timer); });
+  box && box.addEventListener('pointerleave', () => { paused = false; run(); });
+  run();
+}
+
+/* ---------- «Подробнее» раскрывает текст ---------- */
+$$('.more-b').forEach(b => {
+  const t = document.getElementById(b.getAttribute('aria-controls')); if (!t) return;
+  b.addEventListener('click', () => {
+    const open = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', open);
+    $('.arr', b).textContent = open ? '↑' : '↓';
+    b.firstChild.textContent = open ? 'Свернуть ' : 'Подробнее ';
+    gsap.to(t, { height: open ? 'auto' : 0, duration: RM ? 0 : .7, ease: 'expo.inOut', onComplete: () => ScrollTrigger.refresh() });
+  });
+});
+
+/* ---------- ползунок площади ---------- */
+$$('input[type=range][data-out]').forEach(r => { const o = document.getElementById(r.dataset.out); const f = () => o.textContent = (+r.value).toLocaleString('ru-RU').replace(/ /g, ' '); r.addEventListener('input', f); f(); });
+
+/* ---------- реестр сертификатов: поиск по ИНН ---------- */
+$$('form[data-registry]').forEach(f => {
+  const inp = $('input', f), out = $('.reg-out', f);
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = inp.value.replace(/\D/g, '');
+    if (v.length < 10) { inp.classList.add('bad'); inp.focus(); gsap.fromTo(inp.parentNode, { x: -10 }, { x: 0, duration: .6, ease: 'elastic.out(1.2,.2)' }); return; }
+    inp.classList.remove('bad'); $('.r2', out).textContent = v; out.hidden = false;
+    gsap.from($('.reg-card', out), { y: 30, opacity: 0, duration: .7, ease: 'expo.out' });
+  });
+});
+
+/* ---------- всплывающее окно акции на главной ---------- */
+const offer = $('.offer');
+if (offer && !ss.get('offer')) {
+  setTimeout(() => { if (ss.get('offer')) return; offer.hidden = false; gsap.from(offer, { y: 60, opacity: 0, rotate: 3, duration: .9, ease: 'expo.out' }); }, 9000);
+  const close = () => { ss.set('offer', '1'); gsap.to(offer, { y: 40, opacity: 0, duration: .4, onComplete: () => offer.hidden = true }); };
+  $('.modal-x', offer).addEventListener('click', close);
+  $$('a', offer).forEach(a => a.addEventListener('click', () => { ss.set('offer', '1'); offer.hidden = true; }));
 }
 
 /* ---------- калькулятор стоимости ---------- */

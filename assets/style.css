@@ -871,3 +871,76 @@ html.seen #loader{display:none}
 }
 @media (max-width:980px) and (min-width:621px){.bento .cell.hot{grid-column:1/-1}}
 .cols .prose,.article .prose{max-width:44em}
+
+/* ====================== каркас как у оригинала ====================== */
+/* слайдер баннера главной */
+.slider{display:grid;gap:18px;max-width:46em}
+.slides{display:grid;height:auto;overflow:hidden;margin:0;color:inherit;font:inherit}
+.slides .slide{grid-area:1/1;position:static;transform:translateY(105%);opacity:0;transition:transform .9s var(--ease),opacity .6s;pointer-events:none}
+.slides .slide.on{transform:none;opacity:1;pointer-events:auto}
+.slides .slide.out{transform:translateY(-105%);opacity:0}
+.slides .slide p{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2vw,30px);letter-spacing:-.02em;line-height:1.15;color:var(--blue)}
+.slides .slide .hero-cta{margin-top:20px}
+.dots{display:flex;gap:8px}
+.dots button{all:unset;cursor:pointer;width:42px;height:22px;display:grid;align-items:center}
+.dots button i{display:block;height:3px;background:var(--line);position:relative;overflow:hidden;border-radius:2px}
+.dots button i::after{content:"";position:absolute;inset:0;background:var(--blue);transform:scaleX(0);transform-origin:left}
+.dots button.on i::after{animation:dot 5s linear forwards}
+.dots button:focus-visible{outline:2px solid var(--blue)}
+@keyframes dot{to{transform:scaleX(1)}}
+.hero .hero-low{grid-template-columns:1fr}
+/* карточки услуг с кнопками */
+.svc-card{cursor:pointer}
+.svc-card .stretch{text-decoration:none;color:inherit}
+.svc-card .stretch::after{content:"";position:absolute;inset:0;z-index:1}
+.svc-acts{position:relative;z-index:2;display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.svc-acts .chip{border-color:currentColor}
+.svc-card:hover .svc-acts .chip{color:inherit}
+.svc-card:hover .svc-acts .chip:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+/* раскрытие «Подробнее» */
+.more-t{display:grid;gap:18px;overflow:hidden;height:0}
+.more-t.open{height:auto}
+/* карточка города */
+.city-logo{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:-.01em}
+.city-logo b{display:inline-grid;place-items:center;width:24px;height:24px;border:1.5px solid currentColor;font-family:var(--f-mono);font-size:9px}
+.city-c{display:grid;gap:4px;margin-top:6px}
+.city-c a{text-decoration:none;font-family:var(--f-mono);font-size:14px}
+.city-c a:hover{color:var(--blue)}
+.geo .map{min-height:clamp(320px,38vw,520px)}
+/* реестр сертификатов */
+.registry{display:grid;gap:18px}
+.registry tr.hide{display:none}
+/* всплывающее окно акции */
+.offer{position:fixed;right:var(--gut);bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:72;width:min(360px,calc(100vw - 32px));background:var(--blue);color:var(--paper);border-radius:16px;padding:22px;display:grid;gap:12px;box-shadow:0 30px 70px -20px rgba(10,14,42,.6)}
+.offer b{font-family:var(--f-display);font-weight:800;font-size:26px;letter-spacing:-.03em;line-height:1}
+.offer p{margin:0;color:rgba(232,234,229,.85);font-size:15px}
+.offer .acts{display:flex;gap:8px;flex-wrap:wrap}
+.offer .btn{padding:12px 18px;font-size:14px;border-color:var(--paper);color:var(--paper)}
+.offer .btn.solid{background:var(--paper);color:var(--blue)}
+.offer .btn::before{background:var(--ink)}
+.offer .btn:hover{color:var(--paper)}
+.offer .modal-x{right:12px;top:12px;width:34px;height:34px;border-color:var(--paper);color:var(--paper)}
+.facts-grid.nums{grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));margin-top:clamp(40px,5vw,70px)}
+.slab .facts-grid{border-color:var(--paper)}.slab .fact{border-color:var(--line-n)}.slab .fact p{color:var(--mute-n)}
+.case p{margin:6px 0 0;font-size:15px}.case p b{color:var(--paper)}
+.calc{display:grid;gap:12px}
+.rng,.sel{display:grid;gap:8px;font-size:14px;color:var(--mute-n)}
+.rng > div{display:flex;align-items:center;gap:14px}
+.rng input{flex:1;accent-color:var(--blue-soft)}
+.rng output{font-family:var(--f-mono);color:var(--paper);min-width:80px;text-align:right}
+.sel select{font:inherit;font-size:16px;color:var(--paper);background:var(--night-2);border:1px solid var(--line-n);border-radius:10px;padding:12px}
+.calc .btn{width:100%;justify-content:center;margin-top:6px}
+.registry{display:grid;gap:18px;max-width:760px}
+.reg-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end}
+.reg-card{border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:12px;background:var(--paper)}
+.reg-card dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:0}
+.reg-card dt{color:var(--mute);font-size:14px}.reg-card dd{margin:0;font-family:var(--f-mono)}
+.reg-note{color:var(--mute);font-size:11px}
+.smap li span{display:block;padding:10px 0;border-bottom:1px solid var(--line);color:var(--mute);font-size:14px}
+@media (max-width:520px){.reg-row{grid-template-columns:1fr}}
+.form.calc{background:var(--night);color:var(--paper);padding:clamp(22px,3vw,40px);border-radius:18px}
+.form.calc .fld input{color:var(--paper);border-color:var(--line-n)}
+.form.calc .fld label{color:var(--mute-n)}
+.form.calc .chkbox{color:var(--mute-n)}
+.form.calc .chkbox a{color:inherit}
+.form.calc .done p{color:var(--mute-n)}
