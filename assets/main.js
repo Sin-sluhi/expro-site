@@ -135,66 +135,75 @@ addEventListener('keydown', e => {
 /* ---------- полоса прогресса ---------- */
 $('.progress') && gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .3 } });
 
-/* ---------- фон-«калька»: текст записки превращается в код рядом с курсором ---------- */
+/* ---------- фон-«калька»: текст записки превращается в код рядом с курсором ----------
+   Статичный слой букв рисуется один раз в отдельный canvas; каждый кадр — копия слоя
+   и только «горячие» клетки в окне вокруг курсора и полосы сканера. */
 function glyphField(cv) {
   const host = cv.parentElement, ctx = cv.getContext('2d');
   const BASE = (cv.dataset.base || 'ПОЯСНИТЕЛЬНАЯ ЗАПИСКА ПРОЕКТНАЯ ДОКУМЕНТАЦИЯ РЕЗУЛЬТАТЫ ИНЖЕНЕРНЫХ ИЗЫСКАНИЙ СМЕТНАЯ ДОКУМЕНТАЦИЯ ЗАКЛЮЧЕНИЕ ЭКСПЕРТИЗЫ ЕГРЗ ').toUpperCase() + ' ';
   const CODE = cv.dataset.code || '<Expertise><Object/><Conclusion result="positive"/><EGRZ/><Section n="1"/><Estimate/><Survey/></Expertise>';
-  let W, H, cols, rows, cell, heat, dpr, mx = -999, my = -999, sweep = -0.3, visible = true, last = 0;
   const dark = cv.classList.contains('on-dark');
+  const cold = dark ? 'rgba(232,234,229,.06)' : 'rgba(12,16,51,.075)', hotRGB = dark ? '141,152,255' : '36,51,255';
+  const layer = document.createElement('canvas'), lctx = layer.getContext('2d');
+  let W, H, cols, rows, cell, cw, heat, live = new Set(), dpr, mx = -999, my = -999, sweep = -0.3, visible = true, last = 0;
+  const font = () => `500 ${cell * .78}px "JetBrains Mono", monospace`;
   function size() {
-    dpr = Math.min(devicePixelRatio || 1, 2);
+    dpr = Math.min(devicePixelRatio || 1, TOUCH ? 1.5 : 2);
     W = host.clientWidth; H = host.clientHeight;
-    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    cell = W < 600 ? 13 : 15;
-    cols = Math.ceil(W / (cell * .62)); rows = Math.ceil(H / cell);
-    heat = new Float32Array(cols * rows);
-    ctx.font = `500 ${cell * .78}px "JetBrains Mono", monospace`; ctx.textBaseline = 'top';
+    for (const [c, x] of [[cv, ctx], [layer, lctx]]) { c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    cell = W < 600 ? 13 : 15; cw = cell * .62;
+    cols = Math.ceil(W / cw); rows = Math.ceil(H / cell);
+    heat = new Float32Array(cols * rows); live = new Set();
+    lctx.font = font(); lctx.textBaseline = 'top'; lctx.fillStyle = cold;
+    for (let r = 0; r < rows; r++) { let s = ''; for (let c = 0; c < cols; c++) s += BASE[(r * cols + c) % BASE.length]; for (let c = 0; c < cols; c++) lctx.fillText(s[c], c * cw, r * cell); }
+    ctx.font = font(); ctx.textBaseline = 'top';
+    ctx.clearRect(0, 0, W, H); ctx.drawImage(layer, 0, 0, W, H);
   }
-  size(); addEventListener('resize', size);
+  size(); let rt = 0; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(size, 150); });
   host.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
   host.addEventListener('pointerleave', () => { mx = my = -999; });
   new IntersectionObserver(([en]) => visible = en.isIntersecting).observe(host);
-  const cold = dark ? 'rgba(232,234,229,.06)' : 'rgba(12,16,51,.075)', hotRGB = dark ? '141,152,255' : '36,51,255';
+  const heatBox = (x0, y0, x1, y1, fn) => {
+    const c0 = Math.max(0, Math.floor(x0 / cw)), c1 = Math.min(cols - 1, Math.ceil(x1 / cw)), r0 = Math.max(0, Math.floor(y0 / cell)), r1 = Math.min(rows - 1, Math.ceil(y1 / cell));
+    for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) { const i = r * cols + c, h = fn(c * cw, r * cell); if (h > heat[i]) { heat[i] = h; live.add(i); } }
+  };
   function frame(t) {
     requestAnimationFrame(frame);
-    if (!visible || t - last < 33) return; last = t;
-    ctx.clearRect(0, 0, W, H);
-    sweep += 0.0042; if (sweep > 1.4) sweep = -0.4;
-    const sx = sweep * W, R = 150, R2 = R * R, w = cell * .62;
-    ctx.fillStyle = cold;
-    const hot = [];
-    for (let r = 0; r < rows; r++) {
-      const y = r * cell;
-      for (let c = 0; c < cols; c++) {
-        const i = r * cols + c, x = c * w;
-        let h = heat[i] * .93;
-        const dx = x - mx, dy = y - my, d2 = dx * dx + dy * dy;
-        if (d2 < R2) h = Math.max(h, 1 - d2 / R2);
-        const ds = Math.abs(x - sx); if (ds < 70) h = Math.max(h, (1 - ds / 70) * .55);
-        heat[i] = h;
-        if (h > .08) hot.push(i); else ctx.fillText(BASE[i % BASE.length], x, y);
-      }
-    }
-    for (const i of hot) {
-      ctx.fillStyle = `rgba(${hotRGB},${(.12 + heat[i] * .8).toFixed(2)})`;
-      ctx.fillText(CODE[i % CODE.length], (i % cols) * w, ((i / cols) | 0) * cell);
+    if (!visible || t - last < (TOUCH ? 50 : 33)) return; last = t;
+    sweep += TOUCH ? 0.0063 : 0.0042; if (sweep > 1.4) sweep = -0.4;
+    const sx = sweep * W, R = 150, R2 = R * R;
+    if (mx > -999) heatBox(mx - R, my - R, mx + R, my + R, (x, y) => { const d2 = (x - mx) ** 2 + (y - my) ** 2; return d2 < R2 ? 1 - d2 / R2 : 0; });
+    if (sx > -70 && sx < W + 70) heatBox(sx - 70, 0, sx + 70, H, x => { const ds = Math.abs(x - sx); return ds < 70 ? (1 - ds / 70) * .55 : 0; });
+    ctx.clearRect(0, 0, W, H); ctx.drawImage(layer, 0, 0, W, H);
+    const bg = dark ? '#0A0E2A' : '#E8EAE5';
+    for (const i of live) {
+      const h = heat[i] *= .93;
+      if (h < .08) { heat[i] = 0; live.delete(i); continue; }
+      const x = (i % cols) * cw, y = ((i / cols) | 0) * cell;
+      ctx.fillStyle = bg; ctx.fillRect(x, y, cw, cell);
+      ctx.fillStyle = `rgba(${hotRGB},${(.12 + h * .8).toFixed(2)})`;
+      ctx.fillText(CODE[i % CODE.length], x, y);
     }
   }
-  if (RM) { frame(0); return; }
+  if (RM) return;
   requestAnimationFrame(frame);
 }
 
-/* ---------- буквы заголовка худеют под курсором ---------- */
+/* ---------- буквы заголовка худеют под курсором: координаты букв кэшируются ---------- */
 function heroWeight(chars) {
   if (TOUCH || RM || !chars.length) return;
-  let mx = -999, my = -999, raf = 0;
-  const upd = () => { raf = 0;
-    for (const c of chars) { const r = c.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) continue;
-      const d = Math.hypot(r.left + r.width / 2 - mx, r.top + r.height / 2 - my);
-      const k = Math.max(0, 1 - d / 280); c.style.fontVariationSettings = `"wght" ${Math.round(800 - k * 650)}`; }
+  let mx = -999, my = -999, raf = 0, pos = [], stale = true;
+  const cache = () => { pos = chars.map(c => { const r = c.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2 + scrollY]; }); stale = false; };
+  addEventListener('resize', () => stale = true);
+  setTimeout(() => stale = true, 4000);
+  const upd = () => { raf = 0; if (stale) cache();
+    const y0 = scrollY;
+    for (let i = 0; i < chars.length; i++) {
+      const d = Math.hypot(pos[i][0] - mx, pos[i][1] - y0 - my), k = Math.max(0, 1 - d / 280), w = Math.round(800 - k * 650);
+      if (chars[i]._w !== w) { chars[i]._w = w; chars[i].style.fontVariationSettings = `"wght" ${w}`; }
+    }
   };
-  addEventListener('pointermove', e => { mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(upd); });
+  addEventListener('pointermove', e => { if (scrollY > innerHeight) return; mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(upd); });
 }
 
 /* ---------- лист: PDF → XML (страница перевода ПЗ) ---------- */
@@ -339,10 +348,7 @@ function build() {
       scrollTrigger: { trigger: h, start: 'top 88%', toggleActions: 'play none none reverse' } });
   });
 
-  $$('[data-slab]').forEach(s => {
-    gsap.fromTo(s, { clipPath: 'inset(0% 5% 0% 5% round 48px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'none',
-      scrollTrigger: { trigger: s, start: 'top bottom', end: 'top 25%', scrub: true } });
-  });
+  $$('[data-slab]').forEach(s => ScrollTrigger.create({ trigger: s, start: 'top 82%', onEnter: () => s.classList.add('open'), onLeaveBack: () => s.classList.remove('open') }));
 
   $$('[data-reveal]').forEach(g => {
     const kids = g.dataset.reveal === 'self' ? [g] : [...g.children];
@@ -580,7 +586,9 @@ $$('.map[data-map]').forEach(box => {
   const size = () => { const d = Math.min(devicePixelRatio || 1, 2); W = box.clientWidth; H = box.clientHeight; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
   size(); addEventListener('resize', size);
   window.__mapPick = k => { pick = k; t0 = performance.now(); };
+  let mapVis = false; new IntersectionObserver(([en]) => { mapVis = en.isIntersecting; if (mapVis) requestAnimationFrame(draw); }).observe(box);
   const draw = now => {
+    if (!mapVis) return;
     ctx.clearRect(0, 0, W, H);
     ctx.strokeStyle = 'rgba(232,234,229,.07)'; ctx.lineWidth = 1;
     for (let x = 0; x < W; x += 32) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
@@ -600,7 +608,6 @@ $$('.map[data-map]').forEach(box => {
     });
     requestAnimationFrame(draw);
   };
-  requestAnimationFrame(draw);
 });
 
 /* ---------- кейсы: здание, нарисованное линиями чертежа ---------- */
