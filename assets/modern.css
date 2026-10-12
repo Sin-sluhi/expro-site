@@ -115,3 +115,6 @@ a:hover > .mx-logo .mx-logo__c,.page-header__logo:hover .mx-logo__c{animation:mx
 .mx-btn-light:hover{color:#fff!important;background:var(--mx-brand)!important}
 .mx-rv.mx-in:is(.panel,.news__item,.articles__item,.figimage):hover{transform:translateY(-6px)}
 .mx-rv.mx-in.widget:hover{transform:translateX(-4px) scale(1.04)}
+.offer-popup .banner__button:not(.popup){color:var(--mx-brand)!important;background:#fff!important;border:1.5px solid var(--mx-brand)}
+.offer-popup .banner__button:not(.popup):hover{color:#fff!important;background:var(--mx-brand)!important}
+html,body{overflow-x:clip}
