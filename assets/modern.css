@@ -118,3 +118,5 @@ a:hover > .mx-logo .mx-logo__c,.page-header__logo:hover .mx-logo__c{animation:mx
 .offer-popup .banner__button:not(.popup){color:var(--mx-brand)!important;background:#fff!important;border:1.5px solid var(--mx-brand)}
 .offer-popup .banner__button:not(.popup):hover{color:#fff!important;background:var(--mx-brand)!important}
 html,body{overflow-x:clip}
+.mx-up{animation:mx-up .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes mx-up{from{opacity:0;transform:translate3d(0,28px,0)}}

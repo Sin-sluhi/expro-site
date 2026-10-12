@@ -102,10 +102,10 @@
       let k = 0;
       es.forEach(en => { if (!en.isIntersecting) return; const el = en.target; el.style.transitionDelay = (Math.min(k++, 6) * 70) + 'ms'; el.classList.add('mx-in'); io.unobserve(el); });
     }, { rootMargin: '0px 0px -8% 0px' });
-    items.forEach((el, i) => {
-      el.classList.add('mx-rv');
-      if (el.getBoundingClientRect().top < fold) { el.style.transitionDelay = ((arrive ? 450 : 80) + Math.min(i, 8) * 70) + 'ms'; requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('mx-in'))); }
-      else io.observe(el);
+    let k0 = 0;
+    items.forEach(el => {
+      if (el.getBoundingClientRect().top < fold) { el.style.animationDelay = ((arrive ? 450 : 60) + Math.min(k0++, 8) * 70) + 'ms'; el.classList.add('mx-up'); }   // первый экран: CSS-анимация, стартует сразу
+      else { el.classList.add('mx-rv'); io.observe(el); }
     });
     setTimeout(() => items.forEach(el => el.classList.add('mx-in')), 6000);   // страховка: через 6 с видно всё
   }
