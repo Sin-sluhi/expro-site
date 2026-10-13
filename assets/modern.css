@@ -2,7 +2,7 @@
    Современный слой поверх его темы. Раскладка, цвета и блоки — как на сайте;
    здесь только исполнение: отрисовка, наведения, появление, переходы.
    ===================================================================== */
-:root{--mx-brand:#6A1B5F;--mx-brand-2:#9A3A8B;--mx-ink:#2A0F27;--mx-paper:#F1EBEE;--mx-stamp:#D9A441;--mx-ease:cubic-bezier(.77,0,.18,1);--mx-soft:cubic-bezier(.22,1,.36,1)}
+:root{--mx-brand:#2433FF;--mx-brand-2:#5A66FF;--mx-ink:#0C1033;--mx-paper:#E8EAE5;--mx-stamp:#E8401C;--mx-ease:cubic-bezier(.77,0,.18,1);--mx-soft:cubic-bezier(.22,1,.36,1)}
 html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
@@ -11,13 +11,13 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- шапка: мягче тень, после прокрутки — плотнее и компактнее ---------- */
 .page-header{transition:box-shadow .5s var(--mx-soft),background-color .5s,transform .6s var(--mx-ease),padding .5s var(--mx-soft)}
-.page-header.mx-scrolled{background-color:rgba(232,234,229,.97);box-shadow:0 14px 40px -18px rgba(42,15,39,.28)}
+.page-header.mx-scrolled{background-color:rgba(232,234,229,.97);box-shadow:0 14px 40px -18px rgba(26,26,26,.28)}
 @media (min-width:981px){.page-header.mx-hide{transform:translateY(-100%)}}
 .page-header__nav a,.footer a{transition:color .3s}
 .page-header__nav > div > ul > li > a,#menu-service_top > li > a{position:relative}
 .page-header__nav > div > ul > li > a::after,#menu-service_top > li > a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--mx-brand);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--mx-ease)}
 .page-header__nav > div > ul > li > a:hover::after,#menu-service_top > li > a:hover::after{transform:scaleX(1);transform-origin:left}
-.sub-menu-wrap .sub-menu{border-radius:16px!important;box-shadow:0 30px 60px -24px rgba(42,15,39,.35)!important}
+.sub-menu-wrap .sub-menu{border-radius:16px!important;box-shadow:0 30px 60px -24px rgba(26,26,26,.35)!important}
 .sub-menu a{transition:color .25s,padding-left .35s var(--mx-soft)}
 .sub-menu a:hover{color:var(--mx-brand)!important;padding-left:6px}
 
@@ -25,39 +25,39 @@ html.lenis,html.lenis body{height:auto}
 .button,.banner__button_lt,.white_btn,.header__button,input.wpcf7-submit{position:relative;overflow:hidden;isolation:isolate;transition:transform .45s var(--mx-soft),box-shadow .45s var(--mx-soft),background-color .3s,color .3s!important}
 .button::after,.banner__button_lt::after,.white_btn::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-130%);transition:transform .9s var(--mx-ease)}
-.button:hover,.header__button:hover,input.wpcf7-submit:hover{transform:translateY(-3px);box-shadow:0 18px 34px -12px rgba(106,27,95,.55)!important}
+.button:hover,.header__button:hover,input.wpcf7-submit:hover{transform:translateY(-3px);box-shadow:0 18px 34px -12px rgba(36,51,255,.55)!important}
 .button:hover::after,.banner__button_lt:hover::after,.white_btn:hover::after{transform:translateX(130%)}
 .button:active{transform:translateY(0) scale(.98)}
 .banner__button_lt:hover,.white_btn:hover{transform:translateY(-3px)}
 
 /* ---------- карточки: подъём и мягкая тень вместо «вдавливания» ---------- */
 .panel,.figimage,.news__item,.articles__item,.fig-block,.slide-gratitude,.widget,.first_screen_left,.first_screen_right,.figbox{transition:transform .6s var(--mx-soft),box-shadow .6s var(--mx-soft),background-color .4s}
-.panel:hover{transform:translateY(-6px);background:#fff!important;box-shadow:0 26px 50px -26px rgba(42,15,39,.32)!important}
+.panel:hover{transform:translateY(-6px);background:#fff!important;box-shadow:0 26px 50px -26px rgba(26,26,26,.32)!important}
 .panel img,.panel svg{transition:transform .7s var(--mx-soft),fill .4s}
 .panel:hover img,.panel:hover svg{transform:scale(1.08) rotate(-4deg)}
 .fig-block img,.fig-block svg{transition:transform .7s var(--mx-soft)}
 .fig-block:hover img,.fig-block:hover svg{transform:translateY(-6px) scale(1.06)}
-.news__item:hover,.articles__item:hover,.figimage:hover{transform:translateY(-6px);box-shadow:0 26px 50px -26px rgba(42,15,39,.3)}
+.news__item:hover,.articles__item:hover,.figimage:hover{transform:translateY(-6px);box-shadow:0 26px 50px -26px rgba(26,26,26,.3)}
 .himg,.figimage__img{overflow:hidden}
 .himg img,.figimage__img img,.figimage img{transition:transform 1.1s var(--mx-soft)}
 .news__item:hover img,.articles__item:hover img,.figimage:hover img{transform:scale(1.06)}
 .widget{transition:transform .5s var(--mx-soft),box-shadow .5s}
-.widget:hover{transform:translateX(-4px) scale(1.04);box-shadow:0 18px 36px -16px rgba(42,15,39,.35)}
+.widget:hover{transform:translateX(-4px) scale(1.04);box-shadow:0 18px 36px -16px rgba(26,26,26,.35)}
 
 /* ---------- первый экран: живой фон и плавающая картинка ---------- */
 .first_screen_left,.first_screen_right{position:relative;overflow:hidden}
 .first_screen_left::before{content:"";position:absolute;width:520px;height:520px;right:-140px;top:-180px;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,rgba(106,27,95,.16),transparent 65%);animation:mx-glow 9s ease-in-out infinite alternate}
+  background:radial-gradient(circle,rgba(36,51,255,.16),transparent 65%);animation:mx-glow 9s ease-in-out infinite alternate}
 @keyframes mx-glow{to{transform:translate(-60px,60px) scale(1.15)}}
-.first_screen_right::after{content:"";position:absolute;inset:-40%;pointer-events:none;background:conic-gradient(from 0deg,transparent,rgba(106,27,95,.10),transparent 30%);animation:mx-spin 14s linear infinite}
+.first_screen_right::after{content:"";position:absolute;inset:-40%;pointer-events:none;background:conic-gradient(from 0deg,transparent,rgba(36,51,255,.10),transparent 30%);animation:mx-spin 14s linear infinite}
 @keyframes mx-spin{to{transform:rotate(1turn)}}
 .first_screen_right > *{position:relative;z-index:1}
 
 /* ---------- формы: поля с фокусом и анимированной галочкой ---------- */
 .wpcf7-form input[type=text],.wpcf7-form input[type=tel],.wpcf7-form input[type=email],.wpcf7-form textarea,.page-header__search-field{transition:border-color .3s,box-shadow .3s,background-color .3s}
-.wpcf7-form input:focus,.wpcf7-form textarea:focus{border-color:var(--mx-brand)!important;box-shadow:0 0 0 4px rgba(106,27,95,.16)!important;outline:none}
+.wpcf7-form input:focus,.wpcf7-form textarea:focus{border-color:var(--mx-brand)!important;box-shadow:0 0 0 4px rgba(36,51,255,.16)!important;outline:none}
 .form-banner{transition:background-position 1.2s var(--mx-soft)}
-.mx-sent .wpcf7-response-output{display:block!important;border:0!important;margin:14px 0 0!important;padding:14px 18px!important;border-radius:12px;background:rgba(106,27,95,.10);color:#2A0F27;font-weight:500;animation:mx-pop .6s var(--mx-soft)}
+.mx-sent .wpcf7-response-output{display:block!important;border:0!important;margin:14px 0 0!important;padding:14px 18px!important;border-radius:12px;background:rgba(36,51,255,.10);color:#0C1033;font-weight:500;animation:mx-pop .6s var(--mx-soft)}
 @keyframes mx-pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
 
 /* ---------- заголовки секций: отчёркивание проявляется ---------- */
@@ -74,8 +74,8 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- шторка перехода между страницами ---------- */
 .mx-curtain{position:fixed;inset:0;z-index:2000;pointer-events:none;visibility:hidden;display:grid;place-items:center;
-  background:linear-gradient(135deg,#6A1B5F 0%,#3E0F38 100%);clip-path:inset(100% 0 0 0)}
-.mx-curtain__t{font-family:"Roboto Condensed",Roboto,Arial,sans-serif;font-weight:700;font-size:clamp(28px,4.4vw,64px);color:#F1EBEE;text-align:center;max-width:18ch;line-height:1.05;letter-spacing:-.01em;padding:0 20px}
+  background:linear-gradient(135deg,#2433FF 0%,#121A8F 100%);clip-path:inset(100% 0 0 0)}
+.mx-curtain__t{font-family:"Roboto Condensed",Roboto,Arial,sans-serif;font-weight:700;font-size:clamp(28px,4.4vw,64px);color:#E8EAE5;text-align:center;max-width:18ch;line-height:1.05;letter-spacing:-.01em;padding:0 20px}
 .mx-curtain::after{content:"";position:absolute;left:8%;right:8%;bottom:10vh;height:2px;background:rgba(232,234,229,.3)}
 html.arrive .mx-curtain{visibility:visible;clip-path:inset(0 0 0 0)}
 
