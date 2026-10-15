@@ -76,7 +76,9 @@
     if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
     const a = e.target.closest('a[href]'); if (!isInternal(a)) return;
     e.preventDefault();
-    const label = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 70) || document.title;
+    // название страницы — из таблицы сборки (h1 страницы), а не из текста ссылки (у логотипа там склейка надписей)
+    const path = new URL(a.href, location.href).pathname, T = window.MX_TITLES || {};
+    const label = T[path] || T[path + '/'] || (a.closest('.page-header__logo, .footer__logo') ? 'Главная' : (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 70)) || 'Фортрес';
     if (RM || !curtain) { location.href = a.href; return; }
     ss.set('curtain', label); ct.textContent = label;
     gsap.timeline()
@@ -120,6 +122,7 @@
   $$('main img').forEach(img => { if (!img.complete) { img.classList.add('mx-wait'); img.addEventListener('load', () => img.classList.remove('mx-wait'), { once: true }); img.addEventListener('error', () => img.classList.remove('mx-wait'), { once: true }); } });
 
   /* ---------- шторка уходит после перехода ---------- */
+  if (arrive && ct) ct.textContent = ss.get('curtain') || '';
   ss.set('curtain', '');
   if (arrive && curtain) {
     gsap.set(curtain, { visibility: 'visible', clipPath: 'inset(0 0 0 0)' });
