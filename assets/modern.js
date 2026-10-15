@@ -12,8 +12,10 @@
   document.addEventListener('submit', e => {
     const f = e.target;
     e.preventDefault(); e.stopImmediatePropagation();
+    if (f.closest('.mx-search')) { const a = $('.mx-search__list a'); if (a) location.href = a.href; return; }   // Enter в окне поиска — первый результат
     if (f.matches('.page-header__search, .search_mobile, [role=search]') || f.querySelector('[name=s]')) {
       const q = (f.querySelector('[name=s]') || {}).value || '';
+      if (window.mxSearch) { window.mxSearch(q); return; }
       ss.set('curtain', 'Поиск'); location.href = BASE + '/sitemap/' + (q ? '#' + encodeURIComponent(q) : ''); return;
     }
     const tel = f.querySelector('input[type=tel]');
