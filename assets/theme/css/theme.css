@@ -75,13 +75,13 @@ figure {
 }
 
 .intro.services .intro__title.tender .white_btn {
-	border-color: #4B1E7E;
-	background: #4B1E7E;
+	border-color: #8B1022;
+	background: #8B1022;
 	color: white
 }
 
 .intro.services .intro__title.tender .white_btn:hover {
-	background: #3A1566;
+	background: #6A0C1A;
 	color: white
 }
 
@@ -91,7 +91,7 @@ figure {
 	line-height: 160%;
 	-webkit-text-decoration-line: underline;
 	text-decoration-line: underline;
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .intro.services .intro__title.tender .empty_btn:hover {
@@ -99,7 +99,7 @@ figure {
 }
 
 .nomination {
-	color: #1E0F33
+	color: #2A0509
 }
 
 .nomination__list {
@@ -145,7 +145,7 @@ figure {
 .nomination__nom {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .escort__list {
@@ -163,7 +163,7 @@ figure {
 	-ms-flex: 0 1 33.3333%;
 	flex: 0 1 33.3333%;
 	width: 33.3333%;
-	border: 1px solid #E6DFE8;
+	border: 1px solid #E8DFDF;
 	border-radius: 16px;
 	padding: 24px;
 	padding-bottom: 40px;
@@ -186,7 +186,7 @@ figure {
 	width: 48px;
 	height: 48px;
 	border-radius: 100%;
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .escort__item .pop svg {
@@ -202,7 +202,7 @@ figure {
 }
 
 .escort__item p {
-	color: #50415B
+	color: #5B4143
 }
 
 .escort__item ul {
@@ -212,7 +212,7 @@ figure {
 .escort__item ul li {
 	padding-left: 32px;
 	position: relative;
-	color: #1E0F33
+	color: #2A0509
 }
 
 .escort__item ul li:not(:last-child) {
@@ -238,18 +238,18 @@ figure {
 	position: absolute;
 	top: -13px;
 	right: -1px;
-	background: #4B1E7E;
+	background: #8B1022;
 	color: white;
 	border-radius: 30px;
 	padding: 1px 20px
 }
 
 .escort__item.active {
-	border-color: #4B1E7E;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.04%, rgba(30,15,51, 0.01)), color-stop(200.33%, rgba(30,15,51, 0.08))), #FFFFFF;
-	background: -webkit-linear-gradient(top, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF;
-	background: -o-linear-gradient(top, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF;
-	background: linear-gradient(180deg, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF
+	border-color: #8B1022;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.04%, rgba(42,5,9, 0.01)), color-stop(200.33%, rgba(42,5,9, 0.08))), #FFFFFF;
+	background: -webkit-linear-gradient(top, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF;
+	background: -o-linear-gradient(top, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF;
+	background: linear-gradient(180deg, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF
 }
 
 .escort__item.active .pop {
@@ -309,11 +309,11 @@ figure {
 .tax__text--item {
 	height: 202px;
 	margin: 12px 0;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.04%, rgba(30,15,51, 0.01)), color-stop(200.33%, rgba(30,15,51, 0.08))), #FFFFFF;
-	background: -webkit-linear-gradient(top, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF;
-	background: -o-linear-gradient(top, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF;
-	background: linear-gradient(180deg, rgba(30,15,51, 0.01) 1.04%, rgba(30,15,51, 0.08) 200.33%), #FFFFFF;
-	border: 1px solid #E6DFE8;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.04%, rgba(42,5,9, 0.01)), color-stop(200.33%, rgba(42,5,9, 0.08))), #FFFFFF;
+	background: -webkit-linear-gradient(top, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF;
+	background: -o-linear-gradient(top, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF;
+	background: linear-gradient(180deg, rgba(42,5,9, 0.01) 1.04%, rgba(42,5,9, 0.08) 200.33%), #FFFFFF;
+	border: 1px solid #E8DFDF;
 	border-radius: 16px;
 	padding: 24px 24px 53px;
 	display: -webkit-box;
@@ -354,7 +354,7 @@ figure {
 .tax__text p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B;
+	color: #5B4143;
 	max-width: 484px;
 	width: 100%
 }
@@ -409,7 +409,7 @@ figure {
 .tax-in__item p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .tax-in__item .check-list {
@@ -434,7 +434,7 @@ figure {
 	width: 16px;
 	height: 16px;
 	border-radius: 100%;
-	border: 1px solid #E6DFE8
+	border: 1px solid #E8DFDF
 }
 
 .tax-in__item .check-list label:not(:last-child) {
@@ -451,11 +451,11 @@ figure {
 }
 
 .tax-in__item .check-list input:not(:checked)+label:before {
-	border: 1px solid #E6DFE8
+	border: 1px solid #E8DFDF
 }
 
 .tax-in__item .check-list input:checked+label:before {
-	border: 5px solid #4B1E7E
+	border: 5px solid #8B1022
 }
 
 .tax-in__item .price {
@@ -480,20 +480,20 @@ figure {
 	margin-bottom: 8px;
 	display: block;
 	font-size: 12px;
-	color: #857A8C
+	color: #8D797B
 }
 
 .tax-in__item .price a {
 	display: block;
-	border-color: #4B1E7E;
+	border-color: #8B1022;
 	width: 135px;
-	color: #1E0F33;
+	color: #2A0509;
 	margin: auto
 }
 
 .tax-in__item .price a:hover {
 	color: white;
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .why-us {
@@ -523,14 +523,14 @@ figure {
 .why-us__item p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B;
+	color: #5B4143;
 	margin-bottom: 8px
 }
 
 .why-us__item .note {
 	font-size: 14px;
 	line-height: 160%;
-	color: #857A8C
+	color: #8D797B
 }
 
 .why-us__icon {
@@ -559,7 +559,7 @@ figure {
 }
 
 .cost__container p {
-	color: #50415B;
+	color: #5B4143;
 	margin-bottom: 24px
 }
 
@@ -586,7 +586,7 @@ figure {
 .cost__item--count {
 	width: 48px;
 	height: 48px;
-	border: 1px solid #4B1E7E;
+	border: 1px solid #8B1022;
 	border-radius: 100%;
 	font-size: 20px;
 	line-height: 160%;
@@ -595,7 +595,7 @@ figure {
 
 .cost__item--text ul {
 	margin-bottom: 24px;
-	color: #1E0F33
+	color: #2A0509
 }
 
 .cost__item--text ul li {
@@ -619,7 +619,7 @@ figure {
 }
 
 .cost__item:last-child {
-	background-color: #F6F2F7;
+	background-color: #F7F2F2;
 	padding-bottom: 56px
 }
 
@@ -668,7 +668,7 @@ figure {
 }
 
 .statistic__gen strong {
-	color: #4B1E7E;
+	color: #8B1022;
 	font-weight: normal
 }
 
@@ -706,7 +706,7 @@ figure {
 .statistic .chart__popup p {
 	font-size: 14px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .statistic .chart__popup.active {
@@ -723,16 +723,16 @@ figure {
 }
 
 .svg-circle:hover {
-	fill: #4B1E7E
+	fill: #8B1022
 }
 
 .search-system {
 	font-size: 16px;
 	line-height: 160%;
-	background: -webkit-gradient(linear, left top, right top, color-stop(50%, #F6F2F7), color-stop(50%, #1E0F33));
-	background: -webkit-linear-gradient(left, #F6F2F7 50%, #1E0F33 50%);
-	background: -o-linear-gradient(left, #F6F2F7 50%, #1E0F33 50%);
-	background: linear-gradient(90deg, #F6F2F7 50%, #1E0F33 50%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(50%, #F7F2F2), color-stop(50%, #2A0509));
+	background: -webkit-linear-gradient(left, #F7F2F2 50%, #2A0509 50%);
+	background: -o-linear-gradient(left, #F7F2F2 50%, #2A0509 50%);
+	background: linear-gradient(90deg, #F7F2F2 50%, #2A0509 50%);
 	padding: 64px 0
 }
 
@@ -754,7 +754,7 @@ figure {
 }
 
 .search-system__column.search-form {
-	color: #857A8C;
+	color: #8D797B;
 	padding-left: 71px;
 	padding-right: 43px
 }
@@ -792,9 +792,9 @@ figure {
 .search-system__column.search-form form label input {
 	width: 100%;
 	height: 100%;
-	color: #857A8C;
+	color: #8D797B;
 	background: transparent;
-	border: 1px solid #2D193C;
+	border: 1px solid #3D181C;
 	border-radius: 2px;
 	padding: 16px 24px;
 	-webkit-transition: all 0.3s ease;
@@ -803,7 +803,7 @@ figure {
 }
 
 .search-system__column.search-form form label input:focus {
-	border-color: #4B1E7E
+	border-color: #8B1022
 }
 
 .search-system__column.search-form form .polit {
@@ -812,12 +812,12 @@ figure {
 }
 
 .search-system__column.search-form form .polit a {
-	color: #857A8C;
+	color: #8D797B;
 	text-decoration: underline
 }
 
 .search-system__column.search-form form .form_btn {
-	background: #4B1E7E;
+	background: #8B1022;
 	border-radius: 2px;
 	width: 100%;
 	color: white;
@@ -829,7 +829,7 @@ figure {
 }
 
 .search-system__column.search-form form .form_btn:hover {
-	background: #3A1566
+	background: #6A0C1A
 }
 
 .search-system__column--content {
@@ -843,7 +843,7 @@ figure {
 
 .search-system__column ul {
 	margin-bottom: 24px;
-	color: #1E0F33;
+	color: #2A0509;
 	font-size: 20px
 }
 
@@ -885,7 +885,7 @@ figure {
 }
 
 .case__item--list>span {
-	color: #50415B;
+	color: #5B4143;
 	margin-bottom: 8px;
 	display: block;
 	line-height: 160%;
@@ -904,7 +904,7 @@ figure {
 
 .case__item--sity {
 	font-size: 14px;
-	color: #857A8C
+	color: #8D797B
 }
 
 .case__item--item {
@@ -924,11 +924,11 @@ figure {
 }
 
 .case__item--item p {
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .case__item--item span {
-	color: #50415B
+	color: #5B4143
 }
 
 .case__item h3 {
@@ -944,7 +944,7 @@ figure {
 }
 .case__item a:hover h3,
 .case__item h3 a:hover{
-	color: #4B1E7E;
+	color: #8B1022;
 }
 
 .case__list {
@@ -1018,7 +1018,7 @@ figure {
 	display: block;
 	margin-top: auto;
 	border-radius: 100%;
-	background: #4B1E7E;
+	background: #8B1022;
 	-webkit-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
@@ -1039,11 +1039,11 @@ figure {
 }
 
 .useful__item a:hover {
-	background-color: #3A1566
+	background-color: #6A0C1A
 }
 
 .useful__item:hover {
-	border: 1px solid #E6DFE8;
+	border: 1px solid #E8DFDF;
 	-webkit-box-shadow: none;
 	box-shadow: none
 }
@@ -1137,7 +1137,7 @@ figure {
 		margin-left: 60px
 	}
 	.search-system {
-		background: #F6F2F7
+		background: #F7F2F2
 	}
 	.search-system__container {
 		-webkit-box-orient: vertical;
@@ -1150,7 +1150,7 @@ figure {
 	}
 	.search-system__column.search-form {
 		padding: 48px 15px;
-		background: #1E0F33
+		background: #2A0509
 	}
 	.search-system__column.search-form .search-form__text {
 		line-height: 24px
@@ -1199,7 +1199,7 @@ figure {
 		opacity: 1;
 		visibility: visible;
 		background: transparent;
-		border: 1px solid #4B1E7E
+		border: 1px solid #8B1022
 	}
 	.useful__item a img {
 		-webkit-transition: all 0.3s ease;
@@ -1209,7 +1209,7 @@ figure {
 		filter: invert(1)
 	}
 	.useful__item a:hover {
-		background: #4B1E7E
+		background: #8B1022
 	}
 	.useful__item a:hover img {
 		-webkit-filter: none;
@@ -1390,12 +1390,12 @@ figure {
 		top: 0;
 		max-width: 100%;
 		z-index: 2;
-		color: #1E0F33;
+		color: #2A0509;
 		padding: 0;
 		padding-top: 40px
 	}
 	.intro .intro__title .white_btn.white_text {
-		color: #1E0F33;
+		color: #2A0509;
 		width: 250px
 	}
 	.intro .intro__title h1 {
@@ -1509,7 +1509,7 @@ figure {
 }
 
 .case-category h1 {
-	color: #1E0F33;
+	color: #2A0509;
 	font-size: 40px;
 	line-height: 47px;
 	font-weight: normal;
@@ -1529,7 +1529,7 @@ figure {
 }
 
 .case-category h3 a {
-	color: #1E0F33
+	color: #2A0509
 }
 
 .case-category .case__list {
@@ -1558,7 +1558,7 @@ figure {
 }
 
 .post__content {
-	color: #1E0F33;
+	color: #2A0509;
 	margin: 80px 0
 }
 
@@ -1572,13 +1572,13 @@ figure {
 .posted-on {
 	font-size: 14px;
 	line-height: 160%;
-	color: #857A8C
+	color: #8D797B
 }
 
 .tags-links a {
 	font-size: 16px;
 	line-height: 160%;
-	color: #4B1E7E;
+	color: #8B1022;
 	padding-left: 12px;
 	position: relative;
 	margin-right: 22px
@@ -1593,7 +1593,7 @@ figure {
 	width: 4px;
 	height: 4px;
 	border-radius: 100%;
-	background: #4B1E7E;
+	background: #8B1022;
 	margin: auto
 }
 
@@ -1617,7 +1617,7 @@ figure {
 	width: 100%;
 	font-size: 18px;
 	line-height: 180%;
-	color: #50415B
+	color: #5B4143
 }
 
 .entry-content>p:not(:last-child) {
@@ -1625,7 +1625,7 @@ figure {
 }
 
 .post-bar {
-	background: #4B1E7E;
+	background: #8B1022;
 	border-radius: 30px;
 	padding: 60px 107px;
 	color: white;
@@ -1656,7 +1656,7 @@ figure {
 	display: block;
 	border: none;
 	background: #FFFFFF;
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .post-bar__important {
@@ -1687,15 +1687,15 @@ figure {
 	display: block;
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .expert__container a.expert__tel {
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .expert__email {
-	color: #1E0F33;
+	color: #2A0509;
 	margin-bottom: 8px
 }
 
@@ -1717,7 +1717,7 @@ figure {
 }
 
 .subscribe.black {
-	background: #1E0F33;
+	background: #2A0509;
 	color: white;
 	padding: 50px 0
 }
@@ -1728,7 +1728,7 @@ figure {
 }
 
 .subscribe.black .subscribe__container a:hover {
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .subscribe__container {
@@ -1752,18 +1752,18 @@ figure {
 }
 
 .subscribe__container p b {
-	color: #4B1E7E;
+	color: #8B1022;
 	font-weight: normal
 }
 
 .subscribe__container a {
-	border-color: #4B1E7E;
+	border-color: #8B1022;
 	width: 136px;
-	color: #1E0F33
+	color: #2A0509
 }
 
 .subscribe__container a:hover {
-	background: #4B1E7E;
+	background: #8B1022;
 	color: white
 }
 
@@ -1895,11 +1895,11 @@ figure {
 
 .intro__title.news .white_btn {
 	display: block;
-	border-color: #4B1E7E
+	border-color: #8B1022
 }
 
 .intro__title.news .white_btn:hover {
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .main__slider {
@@ -1936,7 +1936,7 @@ figure {
 	-webkit-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-	stroke: #1E0F33;
+	stroke: #2A0509;
 	margin: auto
 }
 
@@ -1952,7 +1952,7 @@ figure {
 }
 
 .main__slider .slick-arrow:hover {
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .main__slider .slick-arrow:hover svg {
@@ -1979,7 +1979,7 @@ figure {
 	width: 6px;
 	height: 6px;
 	border-radius: 100%;
-	background: #B4AAB9;
+	background: #BAA9AA;
 	font-size: 0;
 	-webkit-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
@@ -1987,7 +1987,7 @@ figure {
 }
 
 .main__slider .slick-dots li.slick-active button {
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .change-text {
@@ -2039,14 +2039,14 @@ figure {
 		width: 6px;
 		height: 6px;
 		border-radius: 100%;
-		background: #B4AAB9;
+		background: #BAA9AA;
 		font-size: 0;
 		-webkit-transition: all 0.3s ease;
 		-o-transition: all 0.3s ease;
 		transition: all 0.3s ease
 	}
 	.case__list.change-list .slick-dots li.slick-active button {
-		background: #4B1E7E
+		background: #8B1022
 	}
 	.case__list.change-list .case__item {
 		max-width: 100%
@@ -2068,20 +2068,20 @@ figure {
 }
 
 .transp_btn {
-	border: 1px solid #4B1E7E;
+	border: 1px solid #8B1022;
 	min-width: 177px;
 	padding: 13px 30px;
 	border-radius: 30px;
 	font-size: 14px;
 	line-height: 160%;
-	color: #1E0F33;
+	color: #2A0509;
 	-webkit-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease
 }
 
 .transp_btn:hover {
-	background: #4B1E7E;
+	background: #8B1022;
 	color: white
 }
 
@@ -2108,13 +2108,13 @@ figure {
 }
 
 .no-name__container p {
-	color: #50415B
+	color: #5B4143
 }
 
 .no-name__container h2 {
 	font-size: 24px;
 	line-height: 160%;
-	color: #1E0F33;
+	color: #2A0509;
 	margin: 32px 0;
 	font-weight: normal
 }
@@ -2131,11 +2131,11 @@ figure {
 }
 
 .no-name__col ul li a {
-	color: #1E0F33
+	color: #2A0509
 }
 
 .no-name__col ul li a:active {
-	color: #1E0F33
+	color: #2A0509
 }
 
 .no-name__col:first-child {
@@ -2156,7 +2156,7 @@ figure {
 }
 
 .num-bg {
-	background: #F6F2F7;
+	background: #F7F2F2;
 	padding: 40px 0
 }
 
@@ -2186,7 +2186,7 @@ figure {
 .numbers__item p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .case .white_btn {
@@ -2198,7 +2198,7 @@ figure {
 	font-size: 14px;
 	line-height: 160%;
 	margin-top: 32px;
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .case .white_btn.block {
@@ -2222,7 +2222,7 @@ figure {
 .case__item--info p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .case__item--img.himg img {
@@ -2232,7 +2232,7 @@ figure {
 .case__item--date {
 	font-size: 14px;
 	line-height: 160%;
-	color: #857A8C
+	color: #8D797B
 }
 
 @media screen and (max-width:992px) {
@@ -2307,7 +2307,7 @@ figure {
 
 .buttons a {
 	color: white;
-	border-color: #4B1E7E
+	border-color: #8B1022
 }
 
 .buttons a.white_btn {
@@ -2338,7 +2338,7 @@ figure {
 		margin-bottom: 24px
 	}
 	.buttons a.empty_btn {
-		color: #4B1E7E;
+		color: #8B1022;
 		margin-left: 0
 	}
 }
@@ -2362,7 +2362,7 @@ figure {
 	width: 6px;
 	height: 6px;
 	border-radius: 100%;
-	background: #B4AAB9;
+	background: #BAA9AA;
 	font-size: 0;
 	-webkit-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
@@ -2370,7 +2370,7 @@ figure {
 }
 
 .slick-dots.custom-dots li.slick-active button {
-	background: #4B1E7E
+	background: #8B1022
 }
 
 .doubts-mobile {
@@ -2383,7 +2383,7 @@ figure {
 	margin-bottom: 52px;
 	font-size: 14px;
 	line-height: 160%;
-	color: #4B1E7E;
+	color: #8B1022;
 	position: relative
 }
 
@@ -2424,7 +2424,7 @@ figure {
 }
 
 .service-list.product {
-	background-color: #F6F2F7!important
+	background-color: #F7F2F2!important
 }
 
 .service-list.product h2 {
@@ -2438,7 +2438,7 @@ figure {
 	margin-bottom: 20px;
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .service-list.product .service-list__content ul {
@@ -2487,7 +2487,7 @@ figure {
 .advantage.product .advantage__item p {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .advantage.product .advantage__img {
@@ -2499,7 +2499,7 @@ figure {
 }
 
 .cost.cost_bg {
-	background: #F6F2F7;
+	background: #F7F2F2;
 	padding-top: 57px;
 	padding-bottom: 57px
 }
@@ -2534,7 +2534,7 @@ figure {
 	line-height: 160%;
 	max-width: 800px;
 	width: 100%;
-	color: #50415B
+	color: #5B4143
 }
 
 .expert__content p+p {
@@ -2588,13 +2588,13 @@ figure {
 	left: 0;
 	font-size: 16px;
 	line-height: 160%;
-	color: #857A8C
+	color: #8D797B
 }
 
 .defolt-text {
 	font-size: 16px;
 	line-height: 160%;
-	color: #50415B
+	color: #5B4143
 }
 
 .steps-list {
@@ -2607,7 +2607,7 @@ figure {
 }
 
 .build__content {
-	background: #F6F2F7;
+	background: #F7F2F2;
 	padding-top: 24px;
 	padding-bottom: 64px
 }
@@ -2629,7 +2629,7 @@ figure {
 .build__item h4 {
 	font-size: 16px;
 	line-height: 160%;
-	color: #4B1E7E;
+	color: #8B1022;
 	margin-bottom: 8px
 }
 
@@ -2645,7 +2645,7 @@ figure {
 	padding-top: 0;
 	padding-left: 10px;
 	width: 100%;
-	color: #1E0F33;
+	color: #2A0509;
 	margin-bottom: 16px
 }
 
@@ -2694,7 +2694,7 @@ figure {
 }
 
 .doubts__title span b {
-	color: #4B1E7E
+	color: #8B1022
 }
 
 .doubts__title .numbers {
@@ -2729,7 +2729,7 @@ figure {
 }
 
 .review {
-	background: #F6F2F7;
+	background: #F7F2F2;
 	padding: 64px 0
 }
 
@@ -2747,14 +2747,14 @@ figure {
 .review__item .sity {
 	font-size: 14px;
 	line-height: 160%;
-	color: #857A8C;
+	color: #8D797B;
 	margin-bottom: 8px
 }
 
 .review__item h3 {
 	font-size: 24px;
 	line-height: 160%;
-	color: #1E0F33;
+	color: #2A0509;
 	margin-bottom: 8px
 }
 
@@ -2976,10 +2976,10 @@ figure {
 		padding: 0
 	}
 	.doubts__title {
-		color: #1E0F33
+		color: #2A0509
 	}
 	.doubts__title .defolt-text {
-		color: #1E0F33
+		color: #2A0509
 	}
 	.doubts__title .numbers__item {
 		width: 100%;
@@ -2987,7 +2987,7 @@ figure {
 	}
 	.doubts__title h2 {
 		margin-top: 24px;
-		color: #1E0F33;
+		color: #2A0509;
 		font-size: 24px;
 		line-height: 28px
 	}
@@ -3007,7 +3007,7 @@ figure {
 		color: white
 	}
 	.doubts__title .buttons a.empty_btn {
-		color: #4B1E7E;
+		color: #8B1022;
 		text-align: center;
 		margin-left: 0
 	}
@@ -3048,7 +3048,7 @@ figure {
 }
 
 .partners__item {
-	background-color: #F6F2F7;
+	background-color: #F7F2F2;
 	border-radius: 16px;
 	padding: 24px 32px;
 	padding-bottom: 30px;
@@ -3092,7 +3092,7 @@ figure {
 }
 
 .bg-block {
-	background-color: #F6F2F7;
+	background-color: #F7F2F2;
 	padding: 64px 0
 }
 
