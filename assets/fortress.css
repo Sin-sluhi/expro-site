@@ -7,8 +7,8 @@ html:not([data-logo]) .mx-logo-v[data-v="bastion"],
 html[data-logo="bastion"] .mx-logo-v[data-v="bastion"],
 html[data-logo="monogram"] .mx-logo-v[data-v="monogram"],
 html[data-logo="seal"] .mx-logo-v[data-v="seal"]{display:block}
-.page-header__logo .mx-logo{width:192px!important;height:40px!important}
-@media (max-width:640px){.page-header__logo .mx-logo{width:154px!important;height:32px!important}}
+.page-header__logo .mx-logo{width:200px!important;height:35px!important}
+@media (max-width:640px){.page-header__logo .mx-logo{width:160px!important;height:28px!important}}
 .mx-logo--bastion .mx-logo__c{stroke-dasharray:22;stroke-dashoffset:22;animation:fx-check .9s cubic-bezier(.22,1,.36,1) .4s forwards}
 @keyframes fx-check{to{stroke-dashoffset:0}}
 
@@ -308,3 +308,86 @@ body,.page,.main{background-color:#FBF8EE!important}
   .mx-svc-page .section_s .banner__img-wrapper::after{background:linear-gradient(0deg,#4A0812 0%,rgba(74,8,18,0) 55%)!important}
   .mx-svc-page .section_s .banner__inner{padding:28px 22px 32px!important}
 }
+
+/* ===================== главная, 16.10.2026: о компании + объекты, «Почему именно мы», услуги в пять колонок ===================== */
+.mx-intro{padding-top:10px!important}
+.mx-intro__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.mx-intro__about,.mx-intro__objects{background:#fff;border-radius:28px;padding:40px 42px;box-shadow:0 30px 60px -42px rgba(42,5,9,.35)}
+.mx-intro__about h2{margin:0 0 18px!important;font:700 clamp(26px,2.6vw,36px)/1.15 Onest,Roboto,Arial,sans-serif!important;color:var(--fx-ink)}
+.mx-intro__about h2 span{color:var(--fx-v)}
+.mx-intro__about h2::after{content:"";display:block;width:64px;height:5px;border-radius:5px;margin-top:14px;background:linear-gradient(90deg,var(--fx-v) 0 45%,var(--fx-yd) 45% 100%)}
+.mx-intro__about p{font-size:16px;line-height:1.65;color:#3A2A2A;margin:0 0 14px}
+.mx-intro__lead{font-size:18px!important;font-weight:600;color:var(--fx-ink)!important}
+.mx-intro__slogan{display:inline-block;margin-top:8px!important;padding:12px 20px;border-radius:14px;background:linear-gradient(135deg,#8B1022,#4A0812);color:#fff!important;font-weight:700!important;box-shadow:inset 0 -3px 0 var(--fx-y)}
+.mx-intro__objects h3{margin:0 0 20px!important;font:700 clamp(22px,2vw,28px)/1.2 Onest,Roboto,Arial,sans-serif;color:var(--fx-ink)}
+.mx-obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mx-obj{margin:0;border-radius:18px;overflow:hidden;background:#FBF6EC;display:flex;flex-direction:column}
+.mx-obj img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.mx-obj:hover img{transform:scale(1.04)}
+.mx-obj figcaption{padding:12px 14px;font:600 15px/1.3 Onest,Roboto,Arial,sans-serif;color:#fff;background:linear-gradient(135deg,#8B1022,#6A0C1A);flex:1;display:flex;align-items:center}
+@media (max-width:1000px){.mx-intro__grid{grid-template-columns:1fr}}
+@media (max-width:640px){.mx-intro__about,.mx-intro__objects{padding:24px 18px;border-radius:20px}.mx-obj-grid{gap:10px}.mx-obj figcaption{font-size:13px;padding:10px}}
+
+.mx-why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.mx-why__card{position:relative;background:#fff;border-radius:22px;padding:28px 26px 26px;box-shadow:0 24px 50px -38px rgba(42,5,9,.4);overflow:hidden;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.mx-why__card:hover{transform:translateY(-4px)}
+.mx-why__card::after{content:"";position:absolute;left:26px;right:26px;bottom:0;height:4px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,var(--fx-v),var(--fx-yd));transform:scaleX(0);transform-origin:left;transition:transform .45s}
+.mx-why__card:hover::after{transform:scaleX(1)}
+.mx-why__n{position:absolute;right:20px;top:14px;font:700 44px/1 Unbounded,Onest,Arial,sans-serif;color:#F3E9DC}
+.mx-why__i{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:linear-gradient(145deg,#A3182E,#5E0A16);box-shadow:0 12px 24px -12px rgba(139,16,34,.8);margin-bottom:18px;position:relative}
+.mx-why__i svg{width:28px;height:28px;fill:none;stroke:var(--fx-y2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.mx-why__t{margin:0 0 8px!important;font:700 19px/1.3 Onest,Roboto,Arial,sans-serif;color:var(--fx-ink)}
+.mx-why__d{margin:0!important;font-size:15px;line-height:1.55;color:#5E4C4C}
+@media (max-width:900px){.mx-why{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.mx-why{grid-template-columns:1fr}.mx-why__card{padding:22px 20px}}
+
+.mx-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:start}
+.mx-cols__col{background:#fff;border-radius:20px;padding:20px 16px 14px;box-shadow:0 24px 50px -40px rgba(42,5,9,.4);height:100%}
+.mx-cols__h{display:block;padding:0 6px 12px;margin-bottom:8px;border-bottom:2px solid #F3E9DC;font:700 16px/1.3 Onest,Roboto,Arial,sans-serif;color:var(--fx-v)!important;text-decoration:none}
+.mx-cols__h:hover{color:var(--fx-vd)!important}
+.mx-cols ul{list-style:none;margin:0!important;padding:0!important}
+.mx-cols li{margin:0!important;padding:0!important}
+.mx-cols li::before{display:none!important}
+.mx-cols li a{display:block;position:relative;padding:8px 6px 8px 20px;border-radius:10px;font-size:14px;line-height:1.4;color:#3A2A2A!important;text-decoration:none;transition:background .2s,color .2s}
+.mx-cols li a::before{content:"";position:absolute;left:7px;top:14px;width:6px;height:6px;border-radius:2px;transform:rotate(45deg);background:var(--fx-yd)}
+.mx-cols li a:hover{background:var(--fx-y2);color:var(--fx-vd)!important}
+@media (max-width:1200px){.mx-cols{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.mx-cols{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.mx-cols{grid-template-columns:1fr}}
+
+/* телефон: шапка в одну строку — логотип слева, мессенджеры, поиск и меню справа */
+@media (max-width:991px){
+  .page-header__container:not(.page-header__subnav){display:flex!important;flex-wrap:wrap!important;align-items:center!important;column-gap:8px}
+  .page-header__logo{order:1;flex:0 0 auto;margin:0!important}
+  .button_mobile{order:2;margin-left:auto!important;display:flex!important;align-items:center;gap:8px;width:auto!important}
+  .social_mobile{gap:6px!important}
+  .social_mobile .mx-soc,.social_mobile a{width:28px!important;height:28px!important;background-size:contain!important}
+  .page-header__search.search_mobile{order:3;flex:0 0 auto}
+  .page-header__menu{order:4;flex:1 1 100%!important}
+}
+@media (max-width:400px){
+  .page-header__logo .mx-logo{width:142px!important;height:25px!important}
+  .social_mobile .mx-soc,.social_mobile a{width:24px!important;height:24px!important}
+  .button_mobile{gap:6px}
+}
+
+/* телефон: первый экран — картинка сверху, текст на бордовом ниже (иначе белый текст на светлой картинке не читается) */
+@media (max-width:760px){
+  .first_screen_left{background-size:100% auto!important;background-position:center top!important;background-repeat:no-repeat!important;
+    background-color:#4A0812!important;padding:210px 20px 24px!important;min-height:0!important;height:auto!important}
+  .first_screen_left::after{top:0!important;left:0!important;right:0!important;bottom:0!important;width:auto!important;height:auto!important;
+    background:linear-gradient(180deg,rgba(74,8,18,0) 0px,rgba(74,8,18,0) 120px,rgba(74,8,18,.85) 190px,#4A0812 230px)!important}
+  .first_screen_left_body{max-width:none!important;position:relative;z-index:3}
+  .first_screen_left_body p{font-size:26px!important}
+  .first_screen_left_body .button{width:100%;text-align:center}
+}
+@media (max-width:760px){
+  .first_screen_left{padding-top:245px!important;display:block!important}
+  .first_screen_left::after{background:linear-gradient(180deg,rgba(74,8,18,0) 0px,rgba(74,8,18,0) 160px,rgba(74,8,18,.9) 225px,#4A0812 245px)!important}
+  .first_screen_left_body{min-height:0!important;height:auto!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important;gap:22px}
+  .first_screen_left_body p{margin:0!important}
+}
+@media (max-width:760px){.first_screen_left_body .button{margin-top:4px!important}}
+@media (max-width:640px){.mx-obj figcaption{font-size:12.5px!important;line-height:1.25!important;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;padding:9px 10px!important}}
+.mx-news .news__title,.mx-news .news__title a{text-indent:0!important;padding-left:0!important}
+.breadcrumbs{white-space:normal!important;overflow:visible!important;line-height:1.5}
