@@ -269,7 +269,21 @@ body,.page,.main{background-color:#FBF8EE!important}
 .mx-svc-more__t{font:700 13px/1.3 Onest,Roboto,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--fx-v);margin:0 0 12px}
 .mx-svc-chip{display:block;padding:10px 12px;margin:0 -6px;border-radius:12px;color:var(--fx-ink)!important;font-size:14.5px;line-height:1.4;text-decoration:none;transition:background .2s,color .2s}
 .mx-svc-chip:hover{background:var(--fx-y2);color:var(--fx-vd)!important}
+/* документы справа от описания (письмо МЧС, образцы СТУ) */
+.mx-svc-grid:has(.mx-svc-side--docs){grid-template-columns:minmax(0,1fr) 420px}
+.mx-svc-side--docs{position:static}
+.mx-svc-docs{border-radius:24px;padding:22px;background:#fff;box-shadow:0 20px 40px -30px rgba(42,5,9,.35)}
+.mx-docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.mx-doc{display:flex;flex-direction:column;gap:6px;color:var(--fx-ink)!important;text-decoration:none!important}
+.mx-doc__img{display:block;border-radius:12px;overflow:hidden;border:1px solid rgba(139,16,34,.14);background:#fff;
+  box-shadow:0 14px 28px -20px rgba(42,5,9,.45);transition:transform .25s,box-shadow .25s}
+.mx-doc__img img{display:block;width:100%;height:auto}
+.mx-doc:hover .mx-doc__img{transform:translateY(-3px);box-shadow:0 22px 36px -22px rgba(42,5,9,.6)}
+.mx-doc__t{font:600 14px/1.4 Onest,Roboto,Arial,sans-serif}
+.mx-doc__m{font-size:12.5px;line-height:1.3;color:var(--fx-v);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
 @media (max-width:1000px){.mx-svc-grid{grid-template-columns:1fr}.mx-svc-side{position:static}}
+@media (max-width:1000px){.mx-svc-grid:has(.mx-svc-side--docs){grid-template-columns:1fr}}
+@media (max-width:600px){.mx-docs{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}}
 @media (max-width:640px){.mx-svc-text{padding:26px 20px;border-radius:20px}.mx-svc-text p{font-size:16px}.mx-svc-list li{padding:14px 14px 14px 42px!important}.mx-svc-list li::before{left:16px;top:22px}}
 
 /* шапка: тема переключается по ширине устройства (min-device-width), из-за этого в узком окне на компьютере меню разваливалось.
