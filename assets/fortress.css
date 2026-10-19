@@ -176,7 +176,8 @@ img[src*="/assets/ai/"]{object-fit:cover}
 @media (max-width:760px){.section-form .banner_center .banner__inner_full{padding:28px 20px!important}}
 
 /* ---------- шторка перехода: аккуратное название страницы ---------- */
-.mx-curtain{background:radial-gradient(120% 90% at 85% 10%,rgba(233,216,90,.28),transparent 55%),linear-gradient(135deg,#4A0812 0%,#8B1022 60%,#6A0C1A 100%)!important}
+/* шторка перехода — винный бордо (19.10.2026: «кровавый красный» → бордо) */
+.mx-curtain{background:radial-gradient(120% 90% at 85% 10%,rgba(150,45,75,.32),transparent 60%),linear-gradient(135deg,#2B0610 0%,#58101F 55%,#3D0915 100%)!important}
 .mx-curtain::after{display:none!important}
 .mx-curtain__in{display:flex;flex-direction:column;align-items:center;gap:18px;padding:0 24px;max-width:min(980px,92vw)}
 .mx-curtain__k{font:700 12px/1 Onest,Roboto,Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--fx-y)}
