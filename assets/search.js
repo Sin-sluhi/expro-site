@@ -87,3 +87,16 @@
     open(v ? v.value : '');
   }, true);
 })();
+
+// «Услуги» на телефоне: заголовок раздела открывает/закрывает список, первый раздел открыт
+(function () {
+  var mq = window.matchMedia('(max-width:760px)');
+  function first() { var c = document.querySelector('.mx-cols__col'); if (c) c.classList.add('mx-open'); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', first); else first();
+  document.addEventListener('click', function (e) {
+    var h = e.target.closest && e.target.closest('.mx-cols__h');
+    if (!h || !mq.matches) return;
+    e.preventDefault();
+    h.parentNode.classList.toggle('mx-open');
+  });
+})();

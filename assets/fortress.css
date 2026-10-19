@@ -405,3 +405,101 @@ body,.page,.main{background-color:#FBF8EE!important}
 @media (max-width:640px){.mx-obj figcaption{font-size:12.5px!important;line-height:1.25!important;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:anywhere;padding:9px 10px!important}}
 .mx-news .news__title,.mx-news .news__title a{text-indent:0!important;padding-left:0!important}
 .breadcrumbs{white-space:normal!important;overflow:visible!important;line-height:1.5}
+
+/* === мобильные устройства (19.10.2026): компактнее, меньше прокрутки === */
+@media (max-width:991px){
+  /* открытое меню — сплошной фон, лупа не висит посреди списка */
+  .page-header--active{background:#FBF8EE!important}
+  .page-header--active .page-header__search.search_mobile{visibility:hidden}
+}
+/* «Почему именно мы»: две колонки компактных карточек */
+@media (max-width:560px){
+  .mx-why{grid-template-columns:1fr 1fr!important;gap:10px}
+  .mx-why__card{padding:16px 14px 16px!important;border-radius:18px}
+  .mx-why__n{font-size:26px!important;top:10px!important;right:12px!important}
+  .mx-why__i{width:40px!important;height:40px!important;border-radius:12px!important;margin-bottom:10px!important}
+  .mx-why__i svg{width:20px!important;height:20px!important}
+  .mx-why__t{font-size:15px!important;line-height:1.3!important;margin:0 0 6px!important}
+  .mx-why__d{font-size:13.5px!important;line-height:1.45!important;margin:0!important}
+}
+@media (max-width:330px){.mx-why{grid-template-columns:1fr!important}}
+/* «Схема работы»: значок слева, текст справа */
+@media (max-width:640px){
+  .section-work-steps .grid{display:grid!important;grid-template-columns:1fr!important;gap:14px!important}
+  .section-work-steps .figicon_step{display:flex!important;align-items:center;gap:18px;text-align:left!important;margin:0!important;padding:0 6px 0 0}
+  .section-work-steps .figicon_step::after{display:none!important}
+  .figicon_step .icon{flex:0 0 68px;width:68px!important;height:68px!important;margin:0!important}
+  .figicon_step .icon img{width:32px!important;height:32px!important}
+  .section-work-steps .figicon_step .icon::after{width:24px!important;height:24px!important;font-size:11px!important;top:-4px!important;right:-4px!important}
+  .section-work-steps .figicon__label{margin:0!important;font-size:16px!important;line-height:1.4!important;text-align:left!important}
+}
+/* «Услуги»: на телефоне разделы сворачиваются (открыт первый) */
+@media (max-width:760px){
+  .mx-cols{grid-template-columns:1fr!important;gap:10px}
+  .mx-cols__col{padding:4px 14px!important;height:auto}
+  .mx-cols__h{position:relative;padding:14px 34px 14px 4px!important;margin:0!important;border-bottom:0!important}
+  .mx-cols__h::after{content:"";position:absolute;right:8px;top:50%;width:9px;height:9px;margin-top:-7px;border:solid var(--fx-v);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .25s}
+  .mx-cols__col.mx-open .mx-cols__h::after{transform:rotate(-135deg);margin-top:-2px}
+  .mx-cols__col > ul{display:none}
+  .mx-cols__col.mx-open > ul{display:block;border-top:2px solid #F3E9DC;padding-top:8px!important;padding-bottom:8px!important}
+}
+/* мелкие экраны: заголовки разделов чуть меньше */
+@media (max-width:400px){
+  .section__head h2,.mx-intro h2{font-size:26px!important;line-height:1.2!important}
+}
+@media (max-width:640px){.figicon_step .icon{padding:0!important;display:grid!important;place-items:center}}
+/* «Новости»: кнопка «Все новости» рядом с заголовком, а не поверх него */
+@media (max-width:760px){
+  .news_block .section__head{display:flex!important;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .news_block .section__head h2{margin:0!important}
+  .news_block .section__head .white_btn{position:static!important;width:auto!important;height:auto!important;margin:0!important;padding:9px 16px!important;font-size:14px!important;line-height:1.2!important}
+}
+/* мобильная шапка: логотип | мессенджеры | лупа | меню (кнопка меню вложена в блок мессенджеров — раскрываем его) */
+@media (max-width:991px){
+  .page__page-header .button_mobile{display:contents!important}
+  .page__page-header .social_mobile{order:2;margin:0 0 0 auto!important;display:flex!important;align-items:center}
+  .page__page-header .page-header__search.search_mobile{order:3;position:relative!important;width:30px;height:30px;margin:0 0 0 4px!important}
+  .page-header__search.search_mobile > .page-header__search-submit{position:absolute!important;left:3px!important;top:3px!important;right:auto!important;bottom:auto!important;margin:0!important;transform:none!important}
+  .page__page-header .page-header__menu-btn{order:4}
+  .page__page-header .page-header__menu{order:5}
+}
+/* «Услуги» на планшете: колонки укладываются без пустот */
+@media (min-width:761px) and (max-width:1200px){
+  .mx-cols{display:block!important;column-count:3;column-gap:14px}
+  .mx-cols__col{break-inside:avoid;display:inline-block;width:100%;height:auto!important;margin:0 0 14px}
+}
+@media (min-width:761px) and (max-width:900px){.mx-cols{column-count:2}}
+@media (max-width:360px){
+  .page-header__container:not(.page-header__subnav){column-gap:5px!important}
+  .page-header__logo .mx-logo{width:118px!important;height:21px!important}
+  .social_mobile{gap:4px!important}
+  .social_mobile .mx-soc,.social_mobile a{width:22px!important;height:22px!important}
+  .button_mobile{gap:4px!important}
+  .page-header__search.search_mobile{margin:0!important;width:28px}
+  .page-header__search.search_mobile > .page-header__search-submit{left:2px!important}
+}
+/* телефоны: шапка всегда в одну строку */
+@media (max-width:480px){
+  .page__page-header .page-header__container:not(.page-header__subnav){column-gap:6px!important;flex-wrap:wrap!important}
+  .page__page-header .page-header__logo{flex:0 1 auto;min-width:0}
+  .page__page-header .page-header__logo .mx-logo{width:138px!important;height:auto!important}
+  .page__page-header .social_mobile{gap:5px!important}
+  .page__page-header .social_mobile .mx-soc,.page__page-header .social_mobile a{width:26px!important;height:26px!important}
+  .page__page-header .page-header__search.search_mobile{margin:0!important}
+  .page__page-header .page-header__menu-btn{width:34px!important;min-width:0!important;padding:0!important;margin:0!important}
+}
+@media (max-width:360px){
+  .page__page-header .page-header__container:not(.page-header__subnav){column-gap:4px!important}
+  .page__page-header .page-header__logo .mx-logo{width:112px!important}
+  .page__page-header .social_mobile{gap:4px!important}
+  .page__page-header .social_mobile .mx-soc,.page__page-header .social_mobile a{width:22px!important;height:22px!important}
+  .page__page-header .page-header__search.search_mobile{width:26px}
+  .page__page-header .page-header__search.search_mobile > .page-header__search-submit{left:1px!important}
+}
+/* планшет горизонтально / маленький ноутбук: строка разделов помещается целиком */
+@media (min-width:992px) and (max-width:1199px){
+  #menu-service_top > li > a::before{display:none!important}
+  #menu-service_top > li > a{padding:8px 8px!important;font-size:14px!important}
+  #menu-service_top{justify-content:space-between!important;width:100%}
+  .page-header__subnav .page-header__nav,.page-header__subnav .menu-service_top-container{width:100%}
+}
