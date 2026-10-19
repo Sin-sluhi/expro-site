@@ -7,8 +7,8 @@ html:not([data-logo]) .mx-logo-v[data-v="bastion"],
 html[data-logo="bastion"] .mx-logo-v[data-v="bastion"],
 html[data-logo="monogram"] .mx-logo-v[data-v="monogram"],
 html[data-logo="seal"] .mx-logo-v[data-v="seal"]{display:block}
-.page-header__logo .mx-logo{width:200px!important;height:35px!important}
-@media (max-width:640px){.page-header__logo .mx-logo{width:160px!important;height:28px!important}}
+.page-header__logo .mx-logo{width:214px!important;height:auto!important}
+@media (max-width:640px){.page-header__logo .mx-logo{width:160px!important;height:auto!important}}
 .mx-logo--bastion .mx-logo__c{stroke-dasharray:22;stroke-dashoffset:22;animation:fx-check .9s cubic-bezier(.22,1,.36,1) .4s forwards}
 @keyframes fx-check{to{stroke-dashoffset:0}}
 
@@ -380,7 +380,7 @@ body,.page,.main{background-color:#FBF8EE!important}
   .page-header__menu{order:4;flex:1 1 100%!important}
 }
 @media (max-width:400px){
-  .page-header__logo .mx-logo{width:142px!important;height:25px!important}
+  .page-header__logo .mx-logo{width:142px!important;height:auto!important}
   .social_mobile .mx-soc,.social_mobile a{width:24px!important;height:24px!important}
   .button_mobile{gap:6px}
 }
@@ -471,7 +471,7 @@ body,.page,.main{background-color:#FBF8EE!important}
 @media (min-width:761px) and (max-width:900px){.mx-cols{column-count:2}}
 @media (max-width:360px){
   .page-header__container:not(.page-header__subnav){column-gap:5px!important}
-  .page-header__logo .mx-logo{width:118px!important;height:21px!important}
+  .page-header__logo .mx-logo{width:118px!important;height:auto!important}
   .social_mobile{gap:4px!important}
   .social_mobile .mx-soc,.social_mobile a{width:22px!important;height:22px!important}
   .button_mobile{gap:4px!important}
@@ -503,3 +503,41 @@ body,.page,.main{background-color:#FBF8EE!important}
   #menu-service_top{justify-content:space-between!important;width:100%}
   .page-header__subnav .page-header__nav,.page-header__subnav .menu-service_top-container{width:100%}
 }
+/* «Объекты экспертизы» (19.10.2026): шесть плиток, сетка тянется на всю высоту колонки рядом с текстом — без пустоты внизу */
+@media (min-width:1001px){
+  .mx-intro__objects{display:flex;flex-direction:column}
+  .mx-intro__objects .mx-obj-grid{flex:1 1 auto;grid-template-rows:repeat(3,minmax(0,1fr))}
+  .mx-intro__objects .mx-obj img{flex:1 1 auto;height:0;min-height:96px;aspect-ratio:auto}
+  .mx-intro__objects .mx-obj figcaption{flex:0 0 auto;min-height:52px}
+}
+/* === страницы услуг (19.10.2026): колонки на одном уровне, правая компактнее, листы документа в ряд под текстом === */
+.mx-svc-grid{align-items:stretch!important;grid-template-columns:minmax(0,1fr) 300px!important;gap:28px!important}
+.mx-svc-grid:has(.mx-svc-side--docs){grid-template-columns:minmax(0,1fr) 380px!important}
+.mx-svc-main{display:flex;flex-direction:column;gap:22px;min-width:0}
+.mx-svc-main > .mx-svc-text{flex:1 1 auto}
+.mx-svc-side{position:static!important;display:flex!important;flex-direction:column;gap:14px!important}
+.mx-svc-side > .mx-svc-more{flex:1 1 auto}
+.mx-svc-card{padding:22px!important;border-radius:20px!important}
+.mx-svc-card__t{font-size:19px!important;margin-bottom:8px!important}
+.mx-svc-card p{font-size:14px!important;margin-bottom:14px!important}
+.mx-svc-more{padding:18px!important;border-radius:20px!important}
+.mx-svc-chip{padding:7px 10px!important;font-size:13.5px!important;line-height:1.35!important}
+.mx-svc-docs{padding:18px!important;border-radius:20px!important}
+.mx-sheets{background:#fff;border-radius:28px;padding:28px 32px 32px;box-shadow:0 30px 60px -40px rgba(42,5,9,.35)}
+.mx-sheets__head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:18px}
+.mx-sheets__head .mx-svc-more__t{margin:0!important;flex:0 0 100%}
+.mx-sheets__t{margin:0!important;flex:1 1 auto;font:700 18px/1.35 Onest,Roboto,Arial,sans-serif;color:var(--fx-ink)}
+.mx-sheets__dl{flex:0 0 auto;padding:8px 16px;border-radius:999px;background:var(--fx-v);color:#fff!important;font:600 13px/1.2 Onest,Roboto,Arial,sans-serif;text-decoration:none!important;text-transform:uppercase;letter-spacing:.04em}
+.mx-sheets__dl:hover{background:var(--fx-vd)}
+.mx-sheets__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.mx-sheet{display:flex;flex-direction:column;gap:8px;text-decoration:none!important;color:var(--fx-v)!important;font:600 13px/1 Onest,Roboto,Arial,sans-serif;text-align:center}
+.mx-sheet img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(139,16,34,.14);box-shadow:0 14px 28px -20px rgba(42,5,9,.45);transition:transform .25s,box-shadow .25s}
+.mx-sheet:hover img{transform:translateY(-3px);box-shadow:0 22px 36px -22px rgba(42,5,9,.6)}
+@media (max-width:1000px){.mx-svc-grid,.mx-svc-grid:has(.mx-svc-side--docs){grid-template-columns:1fr!important}}
+@media (max-width:640px){.mx-sheets{padding:20px 16px;border-radius:20px}.mx-sheets__row{gap:8px}.mx-sheets__t{font-size:15px}}
+/* баннеры старых страниц разделов (19.10.2026, «сдвинуть картинку вправо, чтобы было видно название»): картинка — в правой части */
+@media (min-width:1001px){
+  main:not(.mx-svc-page) .banner:not(.banner_dark) .banner__img-wrapper > img.banner__img{position:absolute!important;inset:0 0 0 auto!important;width:58%!important;height:100%!important;
+    object-fit:cover!important;object-position:center!important;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%)!important;mask-image:linear-gradient(90deg,transparent 0%,#000 22%)!important}
+}
+.mx-sheets{margin-top:24px}
